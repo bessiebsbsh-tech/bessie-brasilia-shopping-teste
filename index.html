@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bessie Beauty Club | Brasília Shopping</title>
+
+    <meta name="description"
+        content="A Bessie Beauty Club está chegando ao Brasília Shopping. Cadastre-se na Lista VIP e acompanhe nossa inauguração.">
+
+    <style>
+        :root {
+            --primary: #E46C84;
+            --dark: #2d2d2d;
+            --light: #fafafa;
+            --beige: #f8f3f1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--dark);
+            background: white;
+            line-height: 1.6;
+        }
+
+        .hero {
+            min-height: 100vh;
+            background:
+                linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+                url('./img/fachada.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30px;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 30px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--dark);
+        }
+
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 2.2rem;
+        }
+
+        .subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: auto;
+            margin-bottom: 50px;
+            color: #666;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+            gap: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 18px;
+            box-shadow: 0 4px 20px rgba(0,0,0,.08);
+        }
+
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 18px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,.08);
+        }
+
+        .card h3 {
+            margin-top: 10px;
+        }
+
+        .vip {
+            background: var(--beige);
+        }
+
+        .vip-box {
+            background: white;
+            padding: 50px;
+            border-radius: 24px;
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,.08);
+        }
+
+        .vip ul {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .vip li {
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer p {
+            margin: 8px 0;
+        }
+
+        @media(max-width:768px){
+
+            .hero h1{
+                font-size:2.2rem;
+            }
+
+            .hero p{
+                font-size:1rem;
+            }
+
+            .buttons{
+                flex-direction:column;
+                align-items:center;
+            }
+
+            .btn{
+                width:100%;
+                max-width:320px;
+                text-align:center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="hero">
+        <div class="hero-content">
+
+            <h1>
+                A Bessie Beauty Club está chegando ao Brasília Shopping
+            </h1>
+
+            <p>
+                Uma nova experiência em beleza, bem-estar e autocuidado está sendo preparada para você.
+                Cadastre-se para receber novidades exclusivas sobre nossa inauguração.
+            </p>
+
+            <div class="buttons">
+
+                <a class="btn btn-primary"
+                   href="https://forms.gle/jtst6E2XAWjbtxzW6"
+                   target="_blank">
+                    Entrar para Lista VIP
+                </a>
+
+                https://wa.me/5561991424321?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20inauguração%20da%20Bessie.
+                    WhatsApp
+                </a>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+
+            <h2>Conheça o que estamos preparando</h2>
+
+            <p class="subtitle">
+                Cada detalhe foi pensado para proporcionar uma experiência moderna,
+                acolhedora e sofisticada.
+            </p>
+
+            <div class="gallery">
+
+                ./img/salao.jpg
+
+                ./img/cafe.jpg
+
+                ./img/lavatorios.jpg
+
+            </div>
+
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+
+            <h2>Mais que um salão. Um Beauty Club.</h2>
+
+            <div class="benefits">
+
+                <div class="card">
+                    <h3>💇 Cabelos</h3>
+                    <p>Serviços especializados para realçar sua beleza.</p>
+                </div>
+
+                <div class="card">
+                    <h3>💅 Unhas</h3>
+                    <p>Cuidados completos com acabamento impecável.</p>
+                </div>
+
+                <div class="card">
+                    <h3>✨ Tratamentos</h3>
+                    <p>Bem-estar, autoestima e resultados profissionais.</p>
+                </div>
+
+                <div class="card">
+                    <h3>☕ Café Exclusivo</h3>
+                    <p>Conforto e acolhimento durante sua experiência.</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class="vip">
+
+        <div class="container">
+
+            <div class="vip-box">
+
+                <h2>Lista VIP de Inauguração</h2>
+
+                <p>
+                    Inscreva-se gratuitamente e acompanhe as novidades da
+                    Bessie Beauty Club Brasília Shopping.
+                </p>
+
+                <ul>
+                    <li>✅ Convite para inauguração</li>
+                    <li>✅ Benefícios exclusivos</li>
+                    <li>✅ Novidades em primeira mão</li>
+                    <li>✅ Informações sobre agendamentos</li>
+                </ul>
+
+                <a class="btn btn-primary"
+                   href="https://forms.gle/jtst6E2XAWjbtxzW6"
+                   target="_blank">
+                    Quero participar
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer>
+
+        <p><strong>Bessie Beauty Club</strong></p>
+
+        <p>Brasília Shopping • Brasília/DF</p>
+
+        <p>
+            https://wa.me/5561991424321
+                WhatsApp: (61) 99142-4321
+            </a>
+        </p>
+
+    </footer>
+
+</body>
+</html>
