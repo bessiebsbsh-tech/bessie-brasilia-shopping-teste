@@ -1,345 +1,511 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#c95f78">
+  <meta name="description" content="Bessie Beauty Club no Brasília Shopping. Cadastre-se na Lista VIP e acompanhe as novidades da inauguração.">
+  <title>Bessie Beauty Club | Brasília Shopping</title>
 
-    <title>Bessie Beauty Club | Brasília Shopping</title>
+  <style>
+    :root {
+      --primary: #c95f78;
+      --primary-dark: #a94b62;
+      --ink: #29252a;
+      --muted: #6f686d;
+      --cream: #fbf5f3;
+      --white: #fff;
+      --border: rgba(41, 37, 42, .10);
+      --shadow: 0 18px 50px rgba(41, 37, 42, .10);
+      --radius: 24px;
+      --max: 1160px;
+    }
 
-    <meta name="description"
-        content="A Bessie Beauty Club está chegando ao Brasília Shopping. Cadastre-se na Lista VIP e acompanhe nossa inauguração.">
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <style>
-        :root {
-            --primary: #E46C84;
-            --dark: #2d2d2d;
-            --light: #fafafa;
-            --beige: #f8f3f1;
-        }
+    html { scroll-behavior: smooth; }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Arial, sans-serif;
-        }
+    body {
+      color: var(--ink);
+      background: var(--white);
+      font-family: "Segoe UI", Arial, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-        html {
-            scroll-behavior: smooth;
-        }
+    a { color: inherit; }
 
-        body {
-            color: var(--dark);
-            background: white;
-            line-height: 1.6;
-        }
+    .container {
+      width: min(calc(100% - 40px), var(--max));
+      margin-inline: auto;
+    }
 
-        .hero {
-            min-height: 100vh;
-            background:
-                linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
-                url('./img/fachada.jpg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 30px;
-            color: white;
-        }
+    .hero {
+      min-height: 92vh;
+      min-height: 92svh;
+      display: grid;
+      place-items: center;
+      padding: 110px 20px 80px;
+      color: var(--white);
+      text-align: center;
+      background:
+        linear-gradient(120deg, rgba(20, 17, 20, .72), rgba(20, 17, 20, .34)),
+        url("./img/Fachada.jpg") center / cover no-repeat;
+      position: relative;
+    }
 
-        .hero-content {
-            max-width: 850px;
-        }
+    .hero-content { width: min(900px, 100%); }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      padding: 8px 14px;
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 999px;
+      background: rgba(255,255,255,.10);
+      backdrop-filter: blur(8px);
+      font-size: .9rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
 
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 35px;
-        }
+    h1 {
+      max-width: 850px;
+      margin-inline: auto;
+      font-size: clamp(2.5rem, 6vw, 4.7rem);
+      line-height: 1.03;
+      letter-spacing: -.04em;
+    }
 
-        .buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
+    .hero p {
+      max-width: 720px;
+      margin: 24px auto 34px;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: rgba(255,255,255,.92);
+    }
 
-        .btn {
-            padding: 16px 30px;
-            border-radius: 999px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: .3s;
-        }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
 
-        .btn:hover {
-            transform: translateY(-2px);
-        }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 14px 24px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      text-decoration: none;
+      font-weight: 750;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
 
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-        }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(0,0,0,.15);
+    }
 
-        .btn-secondary {
-            background: white;
-            color: var(--dark);
-        }
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white);
+    }
 
-        section {
-            padding: 80px 20px;
-        }
+    .btn-primary:hover { background: var(--primary-dark); }
 
-        .container {
-            max-width: 1200px;
-            margin: auto;
-        }
+    .btn-light {
+      background: var(--white);
+      color: var(--ink);
+    }
 
-        h2 {
-            text-align: center;
-            margin-bottom: 15px;
-            font-size: 2.2rem;
-        }
+    section { padding: 88px 20px; }
 
-        .subtitle {
-            text-align: center;
-            max-width: 700px;
-            margin: auto;
-            margin-bottom: 50px;
-            color: #666;
-        }
+    .section-heading {
+      max-width: 760px;
+      margin: 0 auto 44px;
+      text-align: center;
+    }
 
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-            gap: 20px;
-        }
+    .section-heading span {
+      color: var(--primary);
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
 
-        .gallery img {
-            width: 100%;
-            height: 320px;
-            object-fit: cover;
-            border-radius: 18px;
-            box-shadow: 0 4px 20px rgba(0,0,0,.08);
-        }
+    h2 {
+      margin-top: 8px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
+      letter-spacing: -.035em;
+    }
 
-        .benefits {
-            display: grid;
-            grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
+    .subtitle {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
 
-        .card {
-            background: white;
-            border-radius: 18px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,.08);
-        }
+    .gallery {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr 1fr;
+      gap: 18px;
+    }
 
-        .card h3 {
-            margin-top: 10px;
-        }
+    .gallery figure {
+      min-height: 320px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: #eee;
+      box-shadow: var(--shadow);
+    }
 
-        .vip {
-            background: var(--beige);
-        }
+    .gallery figure:first-child { min-height: 440px; }
 
-        .vip-box {
-            background: white;
-            padding: 50px;
-            border-radius: 24px;
-            max-width: 900px;
-            margin: auto;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,.08);
-        }
+    .gallery img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s ease;
+    }
 
-        .vip ul {
-            list-style: none;
-            margin: 25px 0;
-        }
+    .gallery figure:hover img { transform: scale(1.04); }
 
-        .vip li {
-            margin: 10px 0;
-            font-size: 1.1rem;
-        }
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
 
-        footer {
-            background: #222;
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-        }
+    .card {
+      padding: 30px 24px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: 0 10px 35px rgba(41, 37, 42, .06);
+    }
 
-        footer p {
-            margin: 8px 0;
-        }
+    .card-icon {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 20px;
+      border-radius: 15px;
+      background: var(--cream);
+      font-size: 1.4rem;
+    }
 
-        @media(max-width:768px){
+    .card h3 { margin-bottom: 8px; font-size: 1.15rem; }
+    .card p { color: var(--muted); font-size: .96rem; }
 
-            .hero h1{
-                font-size:2.2rem;
-            }
+    .vip { background: var(--cream); }
 
-            .hero p{
-                font-size:1rem;
-            }
+    .vip-box {
+      position: relative;
+      max-width: 900px;
+      margin: auto;
+      padding: clamp(32px, 6vw, 60px);
+      overflow: hidden;
+      border: 1px solid rgba(201,95,120,.12);
+      border-radius: 32px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
 
-            .buttons{
-                flex-direction:column;
-                align-items:center;
-            }
+    .vip-box::before {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      right: -90px;
+      top: -100px;
+      border-radius: 50%;
+      background: rgba(201,95,120,.08);
+    }
 
-            .btn{
-                width:100%;
-                max-width:320px;
-                text-align:center;
-            }
-        }
-    </style>
+    .vip-box p {
+      max-width: 650px;
+      margin: 14px auto 22px;
+      color: var(--muted);
+    }
+
+    .vip ul {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px 24px;
+      max-width: 650px;
+      margin: 0 auto 30px;
+      list-style: none;
+      text-align: left;
+    }
+
+    .vip li {
+      padding: 10px 0;
+      font-weight: 650;
+    }
+
+    .location {
+      text-align: center;
+    }
+
+    .location p {
+      color: var(--muted);
+      margin: 10px auto 24px;
+    }
+
+    footer {
+      padding: 42px 20px;
+      background: #211f21;
+      color: rgba(255,255,255,.82);
+      text-align: center;
+    }
+
+    footer strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--white);
+      font-size: 1.15rem;
+    }
+
+    footer a { color: var(--white); }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 10;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 18px;
+      border-radius: 999px;
+      background: #25D366;
+      color: #fff;
+      box-shadow: 0 12px 30px rgba(0,0,0,.18);
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .whatsapp-float:hover { transform: translateY(-2px); }
+
+    :focus-visible {
+      outline: 3px solid rgba(201,95,120,.45);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 900px) {
+      .gallery { grid-template-columns: 1fr 1fr; }
+      .gallery figure:first-child {
+        grid-column: 1 / -1;
+        min-height: 380px;
+      }
+      .benefits { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 620px) {
+      .container { width: min(calc(100% - 28px), var(--max)); }
+      section { padding: 68px 14px; }
+      .hero { min-height: 88vh; padding: 90px 18px 60px; }
+      .buttons { flex-direction: column; align-items: stretch; }
+      .btn { width: 100%; }
+      .gallery,
+      .benefits,
+      .vip ul { grid-template-columns: 1fr; }
+      .gallery figure,
+      .gallery figure:first-child { min-height: 300px; grid-column: auto; }
+      .vip li { text-align: center; }
+      .whatsapp-float {
+        right: 14px;
+        bottom: 14px;
+        padding: 12px 16px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
-
-    <section class="hero">
-        <div class="hero-content">
-
-            <h1>
-                A Bessie Beauty Club está chegando ao Brasília Shopping
-            </h1>
-
-            <p>
-                Uma nova experiência em beleza, bem-estar e autocuidado está sendo preparada para você.
-                Cadastre-se para receber novidades exclusivas sobre nossa inauguração.
-            </p>
-
-            <div class="buttons">
-
-                <a class="btn btn-primary"
-                   href="https://forms.gle/jtst6E2XAWjbtxzW6"
-                   target="_blank">
-                    Entrar para Lista VIP
-                </a>
-
-                https://wa.me/5561991424321?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20inauguração%20da%20Bessie.
-                    WhatsApp
-                </a>
-
-            </div>
-
-        </div>
-    </section>
-
-    <section>
-        <div class="container">
-
-            <h2>Conheça o que estamos preparando</h2>
-
-            <p class="subtitle">
-                Cada detalhe foi pensado para proporcionar uma experiência moderna,
-                acolhedora e sofisticada.
-            </p>
-
-            <div class="gallery">
-
-                ./img/salao.jpg
-
-                ./img/cafe.jpg
-
-                ./img/lavatorios.jpg
-
-            </div>
-
-        </div>
-    </section>
-
-    <section>
-        <div class="container">
-
-            <h2>Mais que um salão. Um Beauty Club.</h2>
-
-            <div class="benefits">
-
-                <div class="card">
-                    <h3>💇 Cabelos</h3>
-                    <p>Serviços especializados para realçar sua beleza.</p>
-                </div>
-
-                <div class="card">
-                    <h3>💅 Unhas</h3>
-                    <p>Cuidados completos com acabamento impecável.</p>
-                </div>
-
-                <div class="card">
-                    <h3>✨ Tratamentos</h3>
-                    <p>Bem-estar, autoestima e resultados profissionais.</p>
-                </div>
-
-                <div class="card">
-                    <h3>☕ Café Exclusivo</h3>
-                    <p>Conforto e acolhimento durante sua experiência.</p>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <section class="vip">
-
-        <div class="container">
-
-            <div class="vip-box">
-
-                <h2>Lista VIP de Inauguração</h2>
-
-                <p>
-                    Inscreva-se gratuitamente e acompanhe as novidades da
-                    Bessie Beauty Club Brasília Shopping.
-                </p>
-
-                <ul>
-                    <li>✅ Convite para inauguração</li>
-                    <li>✅ Benefícios exclusivos</li>
-                    <li>✅ Novidades em primeira mão</li>
-                    <li>✅ Informações sobre agendamentos</li>
-                </ul>
-
-                <a class="btn btn-primary"
-                   href="https://forms.gle/jtst6E2XAWjbtxzW6"
-                   target="_blank">
-                    Quero participar
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <footer>
-
-        <p><strong>Bessie Beauty Club</strong></p>
-
-        <p>Brasília Shopping • Brasília/DF</p>
-
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <div class="eyebrow">Bessie Beauty Club • Brasília Shopping</div>
+        <h1 id="hero-title">Uma nova experiência em beleza está chegando.</h1>
         <p>
-            https://wa.me/5561991424321
-                WhatsApp: (61) 99142-4321
-            </a>
+          Estamos preparando um espaço pensado para beleza, bem-estar e autocuidado.
+          Entre para a Lista VIP e receba as novidades da nossa inauguração.
         </p>
 
-    </footer>
+        <div class="buttons">
+          <a
+            class="btn btn-primary"
+            href="https://forms.gle/jtst6E2XAWjbtxzW6"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Entrar para Lista VIP
+          </a>
+          <a
+            class="btn btn-light"
+            href="https://wa.me/5561991424321?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20inaugura%C3%A7%C3%A3o%20da%20Bessie."
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Falar no WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
 
+    <section aria-labelledby="experiencia-title">
+      <div class="container">
+        <div class="section-heading">
+          <span>O espaço</span>
+          <h2 id="experiencia-title">Conheça o que estamos preparando</h2>
+          <p class="subtitle">
+            Cada detalhe foi pensado para proporcionar uma experiência moderna,
+            acolhedora e sofisticada.
+          </p>
+        </div>
+
+        <div class="gallery">
+          <figure>
+            <img src="./img/Salao.jpg" alt="Interior do espaço da Bessie Beauty Club" loading="lazy">
+          </figure>
+          <figure>
+            <img src="./img/Cafe.jpg" alt="Área de café da Bessie Beauty Club" loading="lazy">
+          </figure>
+          <figure>
+            <img src="./img/Lavatorios.jpg" alt="Área de lavatórios da Bessie Beauty Club" loading="lazy">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="club-title">
+      <div class="container">
+        <div class="section-heading">
+          <span>Beauty Club</span>
+          <h2 id="club-title">Mais que um salão. Uma experiência.</h2>
+          <p class="subtitle">
+            Serviços e momentos pensados para você se cuidar com conforto e praticidade.
+          </p>
+        </div>
+
+        <div class="benefits">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">💇</div>
+            <h3>Cabelos</h3>
+            <p>Serviços especializados para realçar sua beleza.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">💅</div>
+            <h3>Unhas</h3>
+            <p>Cuidados completos com acabamento impecável.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">✨</div>
+            <h3>Tratamentos</h3>
+            <p>Bem-estar, autoestima e resultados profissionais.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">☕</div>
+            <h3>Café exclusivo</h3>
+            <p>Conforto e acolhimento durante sua experiência.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="vip" aria-labelledby="vip-title">
+      <div class="container">
+        <div class="vip-box">
+          <div class="section-heading">
+            <span>Lista VIP</span>
+            <h2 id="vip-title">Esteja entre as primeiras a saber.</h2>
+            <p class="subtitle">
+              Cadastre-se gratuitamente e acompanhe as novidades da Bessie Beauty Club Brasília Shopping.
+            </p>
+          </div>
+
+          <ul>
+            <li>✅ Convite para inauguração</li>
+            <li>✅ Benefícios exclusivos</li>
+            <li>✅ Novidades em primeira mão</li>
+            <li>✅ Informações sobre agendamentos</li>
+          </ul>
+
+          <a
+            class="btn btn-primary"
+            href="https://forms.gle/jtst6E2XAWjbtxzW6"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Quero participar
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="location" aria-labelledby="location-title">
+      <div class="container">
+        <div class="section-heading">
+          <span>Onde estamos chegando</span>
+          <h2 id="location-title">Brasília Shopping</h2>
+          <p class="subtitle">
+            Brasília, Distrito Federal. Acompanhe nossos canais para saber mais sobre a inauguração.
+          </p>
+        </div>
+
+        <a
+          class="btn btn-primary"
+          href="https://wa.me/5561991424321?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Bessie%20Beauty%20Club."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Falar com a Bessie
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <strong>Bessie Beauty Club</strong>
+    <p>Brasília Shopping • Brasília/DF</p>
+    <p>
+      <a href="https://wa.me/5561991424321" target="_blank" rel="noopener noreferrer">
+        WhatsApp: (61) 99142-4321
+      </a>
+    </p>
+  </footer>
+
+  <a
+    class="whatsapp-float"
+    href="https://wa.me/5561991424321?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Bessie%20Beauty%20Club."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Falar com a Bessie pelo WhatsApp"
+  >
+    <span aria-hidden="true">◉</span> WhatsApp
+  </a>
 </body>
 </html>
