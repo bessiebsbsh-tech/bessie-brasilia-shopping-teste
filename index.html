@@ -338,17 +338,51 @@
         animation-duration: .01ms !important;
       }
     }
+  
+    header.site-header { position:absolute; inset:0 0 auto; z-index:5; padding:22px 20px; color:#fff; }
+    .nav { width:min(calc(100% - 40px),var(--max)); margin:auto; display:flex; align-items:center; justify-content:space-between; }
+    .brand { text-decoration:none; font-family:Georgia,"Times New Roman",serif; font-size:1.35rem; letter-spacing:.02em; }
+    .brand small { display:block; margin-top:-2px; font:700 .58rem/1.2 "Segoe UI",Arial,sans-serif; letter-spacing:.18em; text-transform:uppercase; opacity:.82; }
+    .nav-link { padding:9px 15px; border:1px solid rgba(255,255,255,.28); border-radius:999px; background:rgba(255,255,255,.08); backdrop-filter:blur(8px); text-decoration:none; font-size:.85rem; font-weight:700; }
+    .hero::after { content:""; position:absolute; inset:auto 0 0; height:140px; background:linear-gradient(transparent,rgba(20,17,20,.18)); pointer-events:none; }
+    .hero-content { position:relative; z-index:1; }
+    .hero h1,.section-heading h2,.vip-box h2 { font-family:Georgia,"Times New Roman",serif; font-weight:500; }
+    .section-heading span::before { content:"✦"; margin-right:8px; font-size:.72rem; }
+    .gallery { grid-template-rows:1fr 1fr; }
+    .gallery figure { position:relative; }
+    .gallery figure:first-child { grid-row:span 2; }
+    .gallery figure::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 65%,rgba(20,17,20,.18)); pointer-events:none; }
+    .card { transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease; }
+    .card:hover { transform:translateY(-5px); border-color:rgba(201,95,120,.24); box-shadow:0 18px 42px rgba(41,37,42,.10); }
+    .vip-box { background:radial-gradient(circle at 10% 90%,rgba(201,95,120,.08),transparent 30%),#fff; }
+    .location { background:linear-gradient(180deg,#fff,#fbf7f5); }
+    footer { border-top:1px solid rgba(255,255,255,.06); }
+    @media (max-width:620px) {
+      header.site-header { padding:17px 14px; }
+      .nav { width:100%; }
+      .brand { font-size:1.15rem; }
+      .nav-link { padding:8px 12px; }
+      .gallery { grid-template-rows:none; }
+      .gallery figure:first-child { grid-row:auto; }
+    }
   </style>
 </head>
 
 <body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Navegação principal">
+      <a class="brand" href="#" aria-label="Bessie Beauty Club">Bessie<small>Beauty Club</small></a>
+      <a class="nav-link" href="https://forms.gle/jtst6E2XAWjbtxzW6" target="_blank" rel="noopener noreferrer">Lista VIP</a>
+    </nav>
+  </header>
+
   <main>
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-content">
-        <div class="eyebrow">Bessie Beauty Club • Brasília Shopping</div>
-        <h1 id="hero-title">Uma nova experiência em beleza está chegando.</h1>
+        <div class="eyebrow">Brasília Shopping • Em breve</div>
+        <h1 id="hero-title">Seu momento de beleza, do seu jeito.</h1>
         <p>
-          Estamos preparando um espaço pensado para beleza, bem-estar e autocuidado.
+          Um novo endereço para beleza, bem-estar e autocuidado — com uma experiência pensada nos mínimos detalhes.
           Entre para a Lista VIP e receba as novidades da nossa inauguração.
         </p>
 
@@ -505,7 +539,7 @@
     rel="noopener noreferrer"
     aria-label="Falar com a Bessie pelo WhatsApp"
   >
-    <span aria-hidden="true">◉</span> WhatsApp
+    <span aria-hidden="true">✦</span> WhatsApp
   </a>
 </body>
 </html>
