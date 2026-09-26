@@ -9,11 +9,14 @@
 
   <style>
     :root {
-      --primary: #c95f78;
-      --primary-dark: #a94b62;
+      --primary: #b86b7c;
+      --primary-dark: #965465;
+      --gold: #b99a6a;
+      --rose: #ead8d6;
+      --espresso: #302628;
       --ink: #29252a;
       --muted: #6f686d;
-      --cream: #fbf5f3;
+      --cream: #f7f0ed;
       --white: #fff;
       --border: rgba(41, 37, 42, .10);
       --shadow: 0 18px 50px rgba(41, 37, 42, .10);
@@ -124,7 +127,41 @@
       color: var(--ink);
     }
 
-    section { padding: 88px 20px; }
+    section { padding: 104px 20px; }
+
+    .intro-band { background:var(--espresso); color:#fff; padding:26px 20px; }
+    .intro-band .container { display:flex; justify-content:center; gap:42px; flex-wrap:wrap; }
+    .intro-item { display:flex; align-items:center; gap:10px; font-size:.82rem; letter-spacing:.09em; text-transform:uppercase; opacity:.9; }
+    .intro-item b { color:#e7c9a8; font-size:1.05rem; }
+
+    .story { display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:80px; }
+    .story-copy { max-width:520px; }
+    .story-copy .section-heading { text-align:left; margin:0 0 24px; }
+    .story-copy p { color:var(--muted); margin-bottom:22px; }
+    .signature { font-family:Georgia,"Times New Roman",serif; font-style:italic; color:var(--primary); font-size:1.35rem; }
+    .story-image { min-height:520px; border-radius:120px 24px 24px 24px; overflow:hidden; box-shadow:var(--shadow); }
+    .story-image img { width:100%; height:100%; min-height:520px; object-fit:cover; }
+
+    .service-card { position:relative; min-height:250px; padding:34px 28px; overflow:hidden; }
+    .service-card .number { position:absolute; right:22px; top:14px; font:500 4rem/1 Georgia,serif; color:rgba(184,107,124,.10); }
+    .service-card .card-icon { background:var(--espresso); color:#fff; }
+    .service-card h3 { font-family:Georgia,"Times New Roman",serif; font-size:1.35rem; }
+
+    .quote { text-align:center; background:var(--espresso); color:#fff; }
+    .quote-inner { max-width:780px; margin:auto; }
+    .quote-mark { color:#d8b58d; font:4rem/1 Georgia,serif; }
+    .quote h2 { font-size:clamp(2rem,4vw,3.2rem); }
+    .quote p { margin:20px auto 0; color:rgba(255,255,255,.72); }
+
+    .location-panel { display:grid; grid-template-columns:1.2fr .8fr; gap:24px; align-items:stretch; }
+    .location-card { padding:42px; border-radius:28px; background:var(--cream); }
+    .location-card h3 { font:500 1.8rem Georgia,serif; margin-bottom:12px; }
+    .location-card p { margin-bottom:22px; }
+    .mini-card { padding:32px; border:1px solid var(--border); border-radius:28px; }
+    .mini-card strong { display:block; margin-bottom:8px; font-family:Georgia,serif; font-size:1.2rem; }
+
+    @media (max-width:900px){ .story,.location-panel { grid-template-columns:1fr; gap:42px; } .story-image,.story-image img { min-height:420px; } }
+    @media (max-width:620px){ section { padding:78px 14px; } .intro-band .container { gap:18px; justify-content:flex-start; } .story-image,.story-image img { min-height:360px; } .story-image { border-radius:70px 20px 20px 20px; } .location-card,.mini-card { padding:28px 22px; } }
 
     .section-heading {
       max-width: 760px;
@@ -407,6 +444,8 @@
       </div>
     </section>
 
+    <section class="intro-band" aria-label="Diferenciais"><div class="container"><div class="intro-item"><b>✦</b> Beauty &amp; wellness</div><div class="intro-item"><b>✦</b> Brasília Shopping</div><div class="intro-item"><b>✦</b> Experiência premium</div></div></section>
+
     <section aria-labelledby="experiencia-title">
       <div class="container">
         <div class="section-heading">
@@ -432,6 +471,8 @@
       </div>
     </section>
 
+    <section aria-labelledby="story-title"><div class="container story"><div class="story-copy"><div class="section-heading"><span>A essência Bessie</span><h2 id="story-title">Um lugar para desacelerar e se cuidar.</h2></div><p>A Bessie nasce para transformar o cuidado com a beleza em um momento de pausa, conforto e conexão. Um espaço contemporâneo, acolhedor e feito para você.</p><p>Do primeiro café ao último detalhe do seu atendimento, a experiência foi pensada para que você se sinta bem.</p><div class="signature">Bessie Beauty Club</div></div><div class="story-image"><img src="./img/Cafe.jpg" alt="Ambiente de café da Bessie Beauty Club" loading="lazy"></div></div></section>
+
     <section aria-labelledby="club-title">
       <div class="container">
         <div class="section-heading">
@@ -443,32 +484,34 @@
         </div>
 
         <div class="benefits">
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">💇</div>
+          <article class="card service-card">
+            <div class="number">01</div><div class="card-icon" aria-hidden="true">✦</div>
             <h3>Cabelos</h3>
             <p>Serviços especializados para realçar sua beleza.</p>
           </article>
 
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">💅</div>
+          <article class="card service-card">
+            <div class="number">02</div><div class="card-icon" aria-hidden="true">✦</div>
             <h3>Unhas</h3>
             <p>Cuidados completos com acabamento impecável.</p>
           </article>
 
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">✨</div>
+          <article class="card service-card">
+            <div class="number">03</div><div class="card-icon" aria-hidden="true">✦</div>
             <h3>Tratamentos</h3>
             <p>Bem-estar, autoestima e resultados profissionais.</p>
           </article>
 
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">☕</div>
+          <article class="card service-card">
+            <div class="number">04</div><div class="card-icon" aria-hidden="true">✦</div>
             <h3>Café exclusivo</h3>
             <p>Conforto e acolhimento durante sua experiência.</p>
           </article>
         </div>
       </div>
     </section>
+
+    <section class="quote" aria-label="Manifesto"><div class="quote-inner"><div class="quote-mark">“</div><h2>Beleza também é tempo para você.</h2><p>Um convite para viver seu ritual de autocuidado com mais leveza, presença e prazer.</p></div></section>
 
     <section class="vip" aria-labelledby="vip-title">
       <div class="container">
@@ -500,7 +543,7 @@
       </div>
     </section>
 
-    <section class="location" aria-labelledby="location-title">
+    <section class="location" aria-labelledby="location-title"><div class="container location-panel"><div class="location-card"><div class="section-heading" style="text-align:left;margin:0 0 18px"><span>Nos encontre</span><h2 id="location-title">Brasília Shopping</h2></div><p>Um novo ponto de encontro para sua rotina de beleza, bem-estar e autocuidado.</p><a class="btn btn-primary" href="https://wa.me/5561991424321?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Bessie%20Beauty%20Club." target="_blank" rel="noopener noreferrer">Falar com a Bessie</a></div><div class="mini-card"><strong>Brasília · DF</strong><p class="subtitle">Acompanhe nossos canais para saber mais sobre a inauguração, horários e novidades.</p><a href="https://forms.gle/jtst6E2XAWjbtxzW6" target="_blank" rel="noopener noreferrer" class="btn btn-light">Entrar na Lista VIP</a></div></div><div style="display:none">
       <div class="container">
         <div class="section-heading">
           <span>Onde estamos chegando</span>
@@ -518,7 +561,7 @@
         >
           Falar com a Bessie
         </a>
-      </div>
+      </div></div>
     </section>
   </main>
 
