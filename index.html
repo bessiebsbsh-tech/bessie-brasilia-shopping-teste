@@ -42,6 +42,13 @@
     @keyframes heroIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
     @media(max-width:620px){.hero::before{inset:10px;border-radius:20px}.story-copy::before{left:-12px;top:-46px;font-size:7rem}.intro-band::before,.intro-band::after{display:none}}
     @media(prefers-reduced-motion:reduce){.hero-content{animation:none}}
+    .hero-content{padding:28px 24px 34px;border-radius:32px;background:linear-gradient(180deg,rgba(20,17,20,.12),rgba(20,17,20,.24));backdrop-filter:blur(2px)}
+    .hero h1{font-size:clamp(3rem,7vw,5.4rem);text-wrap:balance;text-shadow:0 8px 28px rgba(0,0,0,.18)}.hero p{font-size:clamp(1.02rem,2vw,1.24rem);text-wrap:balance}
+    .card-kicker{margin:-8px 0 10px;color:var(--primary);font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.service-card h3{font-size:1.45rem}.service-card p{max-width:260px}
+    .gallery figure:first-child{border-radius:34px 18px 18px 34px}.gallery figure:nth-child(2){border-radius:18px 34px 18px 18px}.gallery figure:nth-child(3){border-radius:18px 18px 34px 18px}
+    .signature{margin-top:8px}.quote-inner{position:relative;z-index:1}.quote h2{text-wrap:balance}
+    @media(max-width:620px){.hero-content{padding:20px 16px 24px}.hero h1{font-size:clamp(2.65rem,13vw,4rem)}.gallery figure:first-child,.gallery figure:nth-child(2),.gallery figure:nth-child(3){border-radius:22px}.card-kicker{margin-top:-6px}}
+
     .gallery{grid-template-columns:1.45fr .8fr .8fr;grid-template-rows:220px 220px;gap:14px}.gallery figure:first-child{grid-row:1/3;grid-column:1}.gallery figure:nth-child(2){grid-column:2;grid-row:1}.gallery figure:nth-child(3){grid-column:3;grid-row:2}.gallery figure{min-height:0}
     .intro-band .container{position:relative}.intro-band .container::before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(216,181,141,.18);z-index:0}.intro-item{position:relative;z-index:1;background:var(--espresso);padding:0 14px}
     .hero h1 em{font-style:italic}.hero p strong{color:#f3d8d2}.hero .btn-primary{min-width:190px}.location-card .section-heading{margin-bottom:22px}
@@ -66,7 +73,7 @@
         <p>Uma experiência de beleza pensada para transformar seu autocuidado em um momento especial — <strong>atendimento sem hora marcada.</strong></p>
         <div class="buttons">
           <a class="btn btn-primary" href="https://wa.me/5561991424321?text=Ol%C3%A1!%20Gostaria%20de%20conhecer%20a%20Bessie%20Beauty%20Club." target="_blank" rel="noopener noreferrer">Venha nos visitar</a>
-          <a class="btn btn-light" href="#visita">Conhecer a experiência</a>
+          <a class="btn btn-light" href="#visita">Conhecer a Bessie</a>
         </div>
       </div>
     </section>
@@ -98,12 +105,12 @@
 
     <section>
       <div class="container">
-        <div class="section-heading"><span>Beauty Club</span><h2>Beleza no seu tempo.</h2><p class="subtitle">Cuidado, conforto e acolhimento em uma experiência feita para você.</p></div>
+        <div class="section-heading"><span>Beauty Club</span><h2>Um ritual de beleza, do seu jeito.</h2><p class="subtitle">Serviços, ambiente e acolhimento pensados para transformar uma visita em um momento especial.</p></div>
         <div class="benefits">
-          <article class="card service-card"><span class="number">01</span><div class="card-icon">✦</div><h3>Cabelos</h3><p>Serviços pensados para valorizar sua beleza e seu estilo.</p></article>
-          <article class="card service-card"><span class="number">02</span><div class="card-icon">♡</div><h3>Unhas</h3><p>Cuidado, acabamento e atenção aos detalhes em cada visita.</p></article>
-          <article class="card service-card"><span class="number">03</span><div class="card-icon">✧</div><h3>Tratamentos</h3><p>Momentos de cuidado para renovar sua autoestima e bem-estar.</p></article>
-          <article class="card service-card"><span class="number">04</span><div class="card-icon">☕</div><h3>Café &amp; acolhimento</h3><p>Uma pausa gostosa para tornar sua experiência ainda mais especial.</p></article>
+          <article class="card service-card"><span class="number">01</span><div class="card-icon">✦</div><div class="card-kicker">01 · Beauty</div><h3>Cabelos</h3><p>Serviços pensados para valorizar sua beleza e seu estilo.</p></article>
+          <article class="card service-card"><span class="number">02</span><div class="card-icon">♡</div><div class="card-kicker">02 · Care</div><h3>Unhas</h3><p>Cuidado, acabamento e atenção aos detalhes em cada visita.</p></article>
+          <article class="card service-card"><span class="number">03</span><div class="card-icon">✧</div><div class="card-kicker">03 · Wellness</div><h3>Tratamentos</h3><p>Momentos de cuidado para renovar sua autoestima e bem-estar.</p></article>
+          <article class="card service-card"><span class="number">04</span><div class="card-icon">☕</div><div class="card-kicker">04 · Ritual</div><h3>Café &amp; acolhimento</h3><p>Uma pausa gostosa para tornar sua experiência ainda mais especial.</p></article>
         </div>
       </div>
     </section>
