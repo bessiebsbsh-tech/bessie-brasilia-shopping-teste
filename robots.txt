@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.bessiebeautyclub.com.br/sitemap.xml
+Sitemap: https://bessie-brasilia-shopping-teste.bessie-bsbsh.workers.dev/sitemap.xml
