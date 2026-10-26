@@ -1,0 +1,11 @@
+{
+  "$schema": "https://unpkg.com/wrangler@4/config-schema.json",
+  "name": "bessie-whatsapp-private-console",
+  "main": "./whatsapp-console/worker.js",
+  "compatibility_date": "2026-10-26",
+  "assets": {
+    "directory": "./whatsapp-console",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  }
+}
