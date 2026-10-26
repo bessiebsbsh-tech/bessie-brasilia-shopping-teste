@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Painel privado | Bessie</title>
+<style>
+:root{color-scheme:light;--ink:#302628;--muted:#75676a;--rose:#a65d6a;--line:#eadfe1;--bg:#fbf8f7}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,sans-serif}
+main{max-width:850px;margin:40px auto;padding:0 18px}.brand{letter-spacing:.18em;text-transform:uppercase;font-size:.75rem;color:var(--rose);font-weight:700}
+h1{font-family:Georgia,serif;font-weight:500;font-size:2.25rem;margin:.35rem 0}.intro{color:var(--muted);margin-top:0}
+.panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;margin:22px 0;box-shadow:0 8px 30px #30262808}
+label{display:block;font-size:.9rem;font-weight:650;margin:15px 0 6px}input,textarea,select{font:inherit;width:100%;border:1px solid #d9cacc;border-radius:9px;padding:11px;background:white;color:var(--ink)}
+textarea{min-height:100px;resize:vertical}.hint{font-size:.82rem;color:var(--muted);margin:5px 0}
+button{font:inherit;font-weight:650;border:0;border-radius:9px;padding:12px 17px;background:var(--rose);color:#fff;cursor:pointer;margin-top:16px}button:disabled{opacity:.5;cursor:not-allowed}
+.status{padding:12px;border-radius:9px;background:#f7eff0;white-space:pre-wrap;overflow-wrap:anywhere;margin-top:14px}.small{font-size:.82rem;color:var(--muted)}.check{display:flex;gap:10px;align-items:flex-start;font-weight:500}.check input{width:auto;margin-top:6px}
+@media(max-width:600px){main{margin:24px auto}.panel{padding:16px}h1{font-size:1.8rem}}
+</style>
+</head>
+<body><main>
+<div class="brand">Bessie Beauty Club · Brasília Shopping</div>
+<h1>Painel de mensagens</h1>
+<p class="intro">Área administrativa privada para envio pela API oficial do WhatsApp.</p>
+<div class="panel">
+<strong>Antes de enviar</strong>
+<p class="small">Esta primeira versão envia apenas modelos (templates) aprovados pela Meta. O acesso precisa estar protegido pelo Cloudflare Access. Não use este painel para contatos sem consentimento.</p>
+<form id="send-form">
+<label for="phone">Telefone do destinatário</label>
+<input id="phone" name="phone" inputmode="tel" placeholder="5561999999999" required pattern="[0-9+() .-]{10,22}">
+<p class="hint">Inclua código do país e DDD. Ex.: 5561999999999.</p>
+<label for="template">Nome do template aprovado</label>
+<input id="template" name="template" placeholder="nome_do_template" required pattern="[a-zA-Z0-9_]{2,128}">
+<label for="language">Idioma do template</label>
+<select id="language" name="language"><option value="pt_BR">Português (Brasil) — pt_BR</option><option value="en_US">English (US) — en_US</option></select>
+<label for="params">Parâmetros do template (opcional)</label>
+<textarea id="params" name="params" placeholder="Um parâmetro por linha, na ordem do template."></textarea>
+<p class="hint">Use apenas parâmetros que correspondam ao template aprovado. Não coloque dados sensíveis.</p>
+<label class="check"><input id="consent" type="checkbox" required><span>Confirmo que este contato autorizou o recebimento da mensagem e que o template e a finalidade são apropriados.</span></label>
+<label class="check"><input id="confirm" type="checkbox" required><span>Revisei o telefone, o template e os parâmetros e autorizo este envio individual.</span></label>
+<button id="send" type="submit">Enviar mensagem de teste</button>
+<div id="status" class="status" role="status" aria-live="polite">Aguardando configuração do backend seguro.</div>
+</form>
+</div>
+<p class="small">Segurança: nunca informe tokens da Meta nesta página. Eles devem ser cadastrados como secrets no Worker da Cloudflare. Envio em lote e automações de cadência não estão habilitados nesta versão inicial.</p>
+</main>
+<script>
+const form=document.querySelector('#send-form'),status=document.querySelector('#status'),button=document.querySelector('#send');
+form.addEventListener('submit',async e=>{
+ e.preventDefault();
+ if(!form.reportValidity()) return;
+ const phone=document.querySelector('#phone').value.replace(/\D/g,'');
+ const template=document.querySelector('#template').value.trim();
+ const language=document.querySelector('#language').value;
+ const parameters=document.querySelector('#params').value.split('\n').map(x=>x.trim()).filter(Boolean);
+ if(phone.length<10||phone.length>15){status.textContent='Confira o telefone em formato internacional, com DDI e DDD.';return}
+ if(!confirm('Enviar agora uma mensagem para '+phone+' usando o template '+template+'?'))return;
+ button.disabled=true;status.textContent='Enviando solicitação…';
+ try{
+  const response=await fetch('/api/whatsapp/send',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone,template,language,parameters})});
+  const data=await response.json().catch(()=>({error:'Resposta inválida do servidor'}));
+  if(!response.ok)throw new Error(data.error||'Falha no envio (HTTP '+response.status+')');
+  status.textContent='Solicitação aceita pela API. ID da mensagem: '+(data.messageId||'não informado')+'. Confirme a entrega no painel da Meta.';
+ }catch(err){status.textContent='Não foi possível enviar: '+err.message+'\nVerifique se o backend está instalado e protegido antes de tentar novamente.'}
+ finally{button.disabled=false}
+});
+</script>
+</body></html>
