@@ -2,3 +2,7 @@ User-agent: *
 Allow: /
 
 Sitemap: https://bessie-brasilia-shopping-teste.bessie-bsbsh.workers.dev/sitemap.xml
+
+# Área administrativa
+User-agent: *
+Disallow: /admin/
